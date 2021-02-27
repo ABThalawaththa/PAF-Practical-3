@@ -17,11 +17,11 @@ public class Item {
 		return con;
 	}
 	
-	public static void main(String args[]) {
-		Item item = new Item();
-		if(item.connect() != null) {
-			System.out.println("Fuck you");
-		}
-	}
+//	public static void main(String args[]) {
+//		Item item = new Item();
+//		if(item.connect() != null) {
+//			System.out.println("Fuck you");
+//		}
+//	}
 
 }
