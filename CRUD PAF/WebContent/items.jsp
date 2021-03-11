@@ -4,8 +4,7 @@
 <link rel="stylesheet" href="views/bootstrap.min.css">
 
 <%
-
-//update
+	//update
 if (request.getParameter("update_itemID") != null) {
 	Item itemObj = new Item();
 	session.setAttribute("is_in_update_mode", request.getParameter("update_itemID"));
@@ -43,10 +42,10 @@ if (request.getParameter("itemCode") != null && (session.getAttribute("is_in_upd
 	itemName = "";
 	itemPrice = "";
 	itemDesc = "";
-	
+
 	session.setAttribute("is_in_update_mode", "");
 	session.setAttribute("statusMsg", stsMsg);
-} else if (request.getParameter("itemCode") != null) { 
+} else if (request.getParameter("itemCode") != null) {
 	Item itemObj = new Item();
 	String stsMsg = itemObj.insertItem(request.getParameter("itemCode"), request.getParameter("itemName"),
 	request.getParameter("itemPrice"), request.getParameter("itemDesc"));
@@ -72,24 +71,40 @@ if (request.getParameter("itemID") != null) {
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Items Management</h1>
-	<form method="post" action="items.jsp">
-		Item code: <input name="itemCode" type="text"
-			value="<%out.print(itemCode);%>"><br> Item name: <input
-			name="itemName" type="text" value="<%out.print(itemName);%>"><br>
-		Item price: <input name="itemPrice" type="text"
-			value="<%out.print(itemPrice);%>"><br> Item description: <input
-			name="itemDesc" type="text" value="<%out.print(itemDesc);%>"><br>
-		<input name="btnSubmit" type="submit" value="Save">
-	</form>
-	<%
-		out.print(session.getAttribute("statusMsg"));
-	%>
-	<br>
-	<%
-		Item itemObj = new Item();
-	out.print(itemObj.readItems());
-	%>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<h1>Items Management</h1>
+				<form method="post" action="items.jsp">
+					Item code: <input name="itemCode" type="text"
+						value="<%out.print(itemCode);%>" class="form-control"><br>
+					Item name: <input name="itemName" type="text"
+						value="<%out.print(itemName);%>" class="form-control"><br>
+					Item price: <input name="itemPrice" type="text"
+						value="<%out.print(itemPrice);%>" class="form-control"><br>
+					Item description: <input name="itemDesc" type="text"
+						value="<%out.print(itemDesc);%>" class="form-control"><br>
+					<input name="btnSubmit" type="submit" value="Save"
+						class="btn btn-primary">
+				</form>
+
+				<div class="alert alert-success">
+					<%
+						out.print(session.getAttribute("statusMsg"));
+					%>
+				</div>
+
+				<%
+					Item itemObj = new Item();
+				out.print(itemObj.readItems());
+				%>
+				<br>
+			</div>
+		</div>
+
+	</div>
+
+
 
 
 </body>

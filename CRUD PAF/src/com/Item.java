@@ -76,10 +76,10 @@ public class Item {
 				output += "<td>" + itemDesc + "</td>";
 				// buttons
 				output += "<td><form method='post' action='items.jsp'>"
-						+ "<input name='btnUpdate'" + "type='submit' value='Update'>"
+						+ "<input name='btnUpdate'" + "type='submit' value='Update' class='btn btn-secondary'>"
 						+ "<input name='update_itemID' type='hidden'" + "value='" + itemID+ "'>" + "'</form></td>"
 						+ "<td><form method='post' action='items.jsp'>" + "<input name='btnRemove' "
-						+ " type='submit' value='Remove'>" + "<input name='itemID' type='hidden' " + " value='" + itemID
+						+ " type='submit' value='Remove' class='btn btn-danger'>" + "<input name='itemID' type='hidden' " + " value='" + itemID
 						+ "'>" + "</form></td></tr>";
 			}
 			con.close();
